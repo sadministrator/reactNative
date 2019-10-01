@@ -1,3 +1,19 @@
+import React, { Component } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import { createAppContainer } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation-stack'
+import {Dimensions } from "react-native";
+import Homescreen from './components/HomescreenComponent'
+
+export default class App extends Component {
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Text>henlo worldy</Text>
+      </View>
+    )
+  }
+}
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -5,6 +21,7 @@
  * @format
  * @flow
  */
+/*
 import React from 'react';
 import { Component } from 'react'
 import {Dimensions } from "react-native";
@@ -115,3 +132,4 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+*/
