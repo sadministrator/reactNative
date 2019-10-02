@@ -23,18 +23,18 @@ export default class Post extends Component {
     render() {
         const header = <>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                <Text style={{ marginLeft: 10, color: '#616161', fontSize: 13 }}>u/jimbob</Text>
+                <Text style={{ marginLeft: 10, color: '#616161', fontSize: 13 }}>u/{this.props.username}</Text>
                 <Text style={{ marginRight: 10, color: '#616161', fontSize: 12 }}>10/2/19</Text>
             </View>
-            <Image source={require('../images/bananas.jpg')} style={{ marginLeft: 12, marginTop: 5, width: 55, height: 55 }} />
-            <Text style={{ alignSelf: "center", fontWeight: "bold", fontSize: 18 }}>{'Check this out!'}</Text>
+            <Image source={{ uri: this.props.profilePic }} style={{ marginLeft: 12, marginTop: 5, width: 55, height: 55 }} />
+            <Text style={{ alignSelf: "center", fontWeight: "bold", fontSize: 20 }}>{this.props.caption}</Text>
         </>
         return (
             <Card
                 title={header}
-                image={require('../images/bananas.jpg')}>
+                image={{ uri: this.props.photo }}>
                 <Text style={{ alignSelf: 'center', marginBottom: 10 }}>
-                    Look at these mf'ing bananas.
+                    {this.props.caption}
                 </Text>
                 <View style={{ flexDirection: 'row', alignSelf: 'flex-end' }}>
                     <Button
