@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
+import Icon from 'react-native-vector-icons/Entypo'
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import { Card, Button } from 'react-native-elements'
-import Icon from 'react-native-vector-icons/FontAwesome5'
 
 export default class Post extends Component {
     state = {
@@ -9,11 +9,15 @@ export default class Post extends Component {
     }
 
     upvote = () => {
-        likes: this.state.likes + 1
+        this.setState({
+            likes: this.state.likes + 1
+        })
     }
 
     downvote = () => {
-        likes: this.state.likes - 1
+        this.setState({
+            likes: this.state.likes - 1
+        })
     }
 
     render() {
@@ -26,14 +30,14 @@ export default class Post extends Component {
                 </Text>
                 <View style={{ flexDirection: 'row', alignSelf: 'flex-end' }}>
                     <Button
-                        buttonStyle={{ width: '95%', marginRight: 90 }}
+                        buttonStyle={{ width: '95%', marginRight: 80 }}
                         title='Read more' />
                     <TouchableOpacity onPress={this.downvote} style={{ marginTop: 10, alignSelf: 'flex-start' }}>
-                        <Icon style={{ alignSelf: 'flex-start', paddingTop: 4, paddingRight: 10 }} name="arrow-down" size={15} color="#616161" />
+                        <Icon style={{ alignSelf: 'flex-start', paddingTop: 4, paddingRight: 5 }} name={"arrow-long-down"} size={15} color="#616161" />
                     </TouchableOpacity>
                     <Text style={{ marginTop: 10, color: "#616161", alignSelf: 'flex-start', fontSize: 15, fontWeight: 'bold' }}>{this.state.likes}</Text>
                     <TouchableOpacity onPress={this.upvote} style={{ marginTop: 10, alignSelf: 'flex-start' }}>
-                        <Icon style={{ alignSelf: 'flex-start', paddingTop: 2, paddingLeft: 10 }} name="arrow-up" size={15} color="#616161" />
+                        <Icon style={{ alignSelf: 'flex-start', paddingTop: 2, paddingLeft: 5 }} name="arrow-long-up" size={15} color="#616161" />
                     </TouchableOpacity>
                 </View>
             </Card>
