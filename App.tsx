@@ -4,13 +4,17 @@ import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import {Dimensions } from "react-native";
 import Homescreen from './components/HomescreenComponent'
+import Post from './components/PostComponent'
 
 export default class App extends Component {
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>henlo worldy</Text>
-      </View>
+      //<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        //<Text>henlo worldy</Text>
+      //</View>
+      <Post>
+
+      </Post>
     )
   }
 }
