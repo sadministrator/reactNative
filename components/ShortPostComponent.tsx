@@ -5,7 +5,7 @@ import { Card, Button } from 'react-native-elements'
 
 interface Props{ navigation: any, profilePic: String, photo: String, content: String }
 
-export default class Post extends Component<Props> {
+export default class ShortPost extends Component<Props> {
     state = {
         likes: 0
     }
@@ -41,14 +41,6 @@ export default class Post extends Component<Props> {
                     {this.props.content}
                 </Text>
                 <View style={{ flexDirection: 'row', alignSelf: 'flex-end' }}>
-                    <Button
-                        buttonStyle={{ width: '95%', marginRight: 80 }}
-                        title='Read more'
-                        onPress={() => {
-                            const { navigate } = this.props.navigation;
-                            navigate('Comments', {postProps: this.props.postProps})
-                          }}
-                         />
                     <TouchableOpacity onPress={this.downvote} style={{ marginTop: 10, alignSelf: 'flex-start' }}>
                         <Icon style={{ alignSelf: 'flex-start', paddingTop: 4, paddingRight: 5 }} name={"arrow-long-down"} size={15} color="#616161" />
                     </TouchableOpacity>
