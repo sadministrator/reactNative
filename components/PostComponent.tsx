@@ -1,21 +1,41 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native'
-import { Card, Button, Icon } from 'react-native-elements'
-//import {} from 'react-native-vector-icons'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import { Card, Button } from 'react-native-elements'
+import Icon from 'react-native-vector-icons/FontAwesome5'
 
 export default class Post extends Component {
+    state = {
+        likes: 0
+    }
+
+    upvote = () => {
+        likes: this.state.likes + 1
+    }
+
+    downvote = () => {
+        likes: this.state.likes - 1
+    }
+
     render() {
         return (
             <Card
-                title='HELLO WORLD'
+                title='Check this out!'
                 image={require('../images/bananas.jpg')}>
                 <Text style={{ marginBottom: 10 }}>
-                    The idea with React Native Elements is more about component structure than actual design.
+                    Look at these mf'ing bananas.
                 </Text>
-                <Button
-                    icon={<Icon name='code' color='#ffffff' />}
-                    buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
-                    title='VIEW NOW' />
+                <View style={{ flexDirection: 'row', alignSelf: 'flex-end' }}>
+                    <Button
+                        buttonStyle={{ width: '95%', marginRight: 90 }}
+                        title='Read more' />
+                    <TouchableOpacity onPress={this.downvote} style={{ marginTop: 10, alignSelf: 'flex-start' }}>
+                        <Icon style={{ alignSelf: 'flex-start', paddingTop: 4, paddingRight: 10 }} name="arrow-down" size={15} color="#616161" />
+                    </TouchableOpacity>
+                    <Text style={{ marginTop: 10, color: "#616161", alignSelf: 'flex-start', fontSize: 15, fontWeight: 'bold' }}>{this.state.likes}</Text>
+                    <TouchableOpacity onPress={this.upvote} style={{ marginTop: 10, alignSelf: 'flex-start' }}>
+                        <Icon style={{ alignSelf: 'flex-start', paddingTop: 2, paddingLeft: 10 }} name="arrow-up" size={15} color="#616161" />
+                    </TouchableOpacity>
+                </View>
             </Card>
         )
     }
