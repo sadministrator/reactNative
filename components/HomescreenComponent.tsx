@@ -112,7 +112,8 @@ export default class Homescreen extends React.Component {
                 />
                 <FlatList
                     data={this.state.Posts}
-                    renderItem={({ item }) => <Post
+                    renderItem={({ item, index }) => <Post
+                        id={index}
                         username={item.username}
                         profilePic={item.profilePic}
                         title={item.title}
